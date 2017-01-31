@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IPad Signature App</title>
+    <link rel="stylesheet" href="./css/themes/default/jquery.mobile-1.4.4.min.css">
+    <link rel="stylesheet" href="./_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+    <!-- Scripts for IPad Sign -->
+    <link rel="stylesheet" href="./css/jquery.signaturepad.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./_assets/js/index.js"></script>
+    <script src="./js/jquery.mobile-1.4.4.min.js"></script>
+
+    <!-- Scripts for IPad Sign -->
+    <!--[if lt IE 9]><script src="./_assets/js/flashcanvas.js"></script><![endif]-->
+    <script src="./_assets/js/jquery.signaturepad.min.js"></script>
+    <script src="./_assets/js/json2.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" class="jqm-demos" id="panel-fixed-page1" data-position-fixed="true" data-title="IPad Signing App">
+
+    <div data-role="header" data-position="fixed">
+        <h1>IPad Signing Form</h1>
+        <a id="btn_menu" href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+
+	
+		<img src="./_assets/img/logo-maroon150.png" align="left" style="padding-right:100px;" />
+		<br/><br/><br/>
+        <h1>IPAD Signature App</h1>
+
+    </div><!-- /content -->
+
+    <div data-role="panel" data-position-fixed="true" data-dismissible="false" data-display="push" data-theme="a" id="nav-panel" class="ui-panel-open">
+
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+            <br/><br/><br/><br/>
+            <li><a href="#page-buyer-form">Assignment of Buyer's Interest</a></li>
+            <li><a href="#page-seller-form">Seller Information</a></li>
+            <li><a href="#page-condition-form">Showing and Condition Report</a></li>
+            <li><a href="#page-checklist-form">WholeSale Checklists</a></li>
+			<li><a href="#page-leadbased-form">Lead Based Paint TAR 1906</a></li>
+			<li><a href="#page-purchase-form">Purchase & Sale Agreement</a></li>
+        </ul>
+
+    </div><!-- /panel -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="page-buyer-form">
+
+    <div data-role="header">
+        <h1>Assignment of Buyer's Interest in Contract Form</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content jqm-content">
+
+        <h2 style="text-align: center">Assignment of Buyer's Interest in Contract</h2>
+        <form id="by_form" method="POST" data-ajax="false">
+            <div>
+                <div data-role="fieldcontain">
+                    <label for="by_contract_date" class="bold">Date:</label>
+                    <input type="date" name="by_contract_date" id="by_contract_date" data-mini="true">
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="by_contract_name" class="bold">Contract:</label>
+                    <input type="text" name="by_contract_name" id="by_contract_name" data-mini="true">
+                </div>
+                <div style="margin-left: 30px;" id="contract_detail">
+                    <div data-role="fieldcontain">
+                        <label for="by_seller_name" class="bold">Seller:</label>
+                        <input type="text" name="by_seller_name" id="by_seller_name" >
+                    </div>
+
+                    <div data-role="fieldcontain" class="no-border">
+                        <label class="bold" for="by_buyer_name"  >Buyer:</label>
+                        <input type="text" name="by_buyer_name" id="by_buyer_name" value="North Forest Financial, LLC (aka COSA Investments, LTD)" readonly  >
+                    </div>
+                </div>
+                <p>
+                    Assignee agrees to accept all terms and conditions as provided in the underlying contract being assigned hereunder without modification, including payment of all standard seller closing costs, if applicable. Seller to pay any and all potential liens on property.
+                </p>
+
+                <article>
+                    <div data-role="fieldcontain" id="consideration_container" >
+                        <label for="by_assignment_fee" class="bold">Consideration:   $</label>
+                        <input type="number" name="by_assignment_fee" id="by_assignment_fee" min="0" data-mini="true">
+                    </div>
+
+                    <span class="sameline">
+                    Assignment Fee to be paid to COSA Investments, Ltd at the time of closing of the contract. Making total amount paid for contract, purchase price and assignment fee $
+                    </span>
+
+					<div class="width-500">
+                    <input type="number" name="by_total_fee" id="by_total_fee" min="0" data-mini="true">
+					</div>
+
+                    <div data-role="fieldcontain" id="nffs_pay_container" class="width-100">
+						
+                        <label for="by_nffs_pay" >North Forest Financial LLC shall pay</label>
+                        
+						<input type="number" name="by_nffs_pay" id="by_nffs_pay" min="0" data-mini="true">
+						
+                    </div>
+
+
+                    <div data-role="fieldcontain" class="no-border">
+                        <label for="by_assignor" class="bold">Assignor: </label>
+                        <input type="text" name="by_assignor" id="by_assignor" data-mini="true" value=" North Forest Financial, LLC (aka COSA Investments, LTD)" readonly>
+                    </div>
+
+                    <div data-role="fieldcontain">
+                        <label for="by_assignee" class="bold">Assignee: </label>
+                        <input type="text" name="by_assignee" id="by_assignee" data-mini="true">
+                    </div>
+                </article>
+                <article>
+
+                    For valuable consideration, Assignor assigns to Assignee all of Assignor's interest, rights, duties and obligations under the contract, including but not limited to the unrestricted right to terminate. Assignee agrees to be bound by the Contact and perform as the Assignor to indemnify, defend, and hold Assignor harmless from any loss, attorney's fee, expenses, or claims resulting from Assignee's breach of the Contract. Any Earnest Money, Option Fee or other deposits made by the Assignor shall be refunded to the Assignor by the Assignee at the time of closing and shall be in excess of the Assignment Fee defined herein.
+
+
+                    <div class="ui-grid-a">
+
+                        <div class="ui-block-a" >
+                            <label for="by_assignee_deposit"> Assignee shall deposit $</label>
+                            <input type="number" name="by_assignee_deposit" id="by_assignee_deposit" data-mini="true" min="0" class="sameline">
+                        </div>
+
+                        <div class="ui-block-b" >
+                            <label>with Title Company by</label>
+                            <input type="text" name="by_reunion_titile" id="by_reunion_titile" data-mini="true">
+                        </div>
+
+                    </div>
+
+
+                    Deposit shall be credit to purchase price.
+                    If for any reason North Forest Financial cannot provide free and clear title, Assignee shall receive their deposit back in full.
+
+                </article>
+                <article>
+
+                    <h3>NO OPTION PERIOD IS REQUIRED</h3>This assignment binds, benefits, and may be enforced by the successors in interest of the parties. When the context requires, sigular nouns and pronouns include the plural.
+                </article>
+
+                <article>
+                    <div data-role="fieldcontain">
+                        <label for="by_sign_assignor" class="bold">Assignor:</label>
+                        <input type="text" name="by_sign_assignor" id="by_sign_assignor" data-mini="true">
+                        <label for="by_assignor_date" class="bold">Date: </label>
+                        <input type="date" name="by_assignor_date" id="by_assignor_date" data-mini="true">
+                        <label for="by_sign_assignee" class="bold">Assignee:</label>
+                        <input type="text" name="by_sign_assignee" id="by_sign_assignee" data-mini="true">
+                        <label for="by_assignee_date" class="bold">Date:</label>
+                        <input type="date" name="by_assignee_date" id="by_assignee_date" data-mini="true">
+                    </div>
+                </article>
+            </div>
+
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+				<div class="by_sigPad " id="by_sigPad1">
+					<p class="drawItDesc">Assignor:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output1" class="output1">
+					</div>
+				</div>
+				</div>
+				
+				
+				<div class="ui-block-b">
+				<div class="by_sigPad" id="by_sigPad2">
+					<p class="drawItDesc">Assignee:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output2" class="output2">
+					</div>
+				</div>
+				</div>
+			</div>
+			
+			<div data-role="fieldcontain">
+					<label for="by_email_subject" class="bold" >Email Subject:</label>
+					<input type="text" name="email_subject" id="by_email_subject" data-mini="true">
+			</div>
+			
+            <div>
+                <div data-role="collapsible" data-inset="false">
+                    <h3>Additional Emails</h3>
+                    <div data-role="fieldcontain">
+                        <label for="by_additional_email1" >Additional Email1:</label>
+                        <input type="text" name="additional_email1" id="by_additional_email1" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="by_additional_email2" >Additional Email2:</label>
+                        <input type="text" name="additional_email2" id="by_additional_email2" data-mini="true">
+                    </div>
+                </div><!-- /collapsible -->
+            </div>
+        </form>
+        <br/>
+        <a href="#" id="by_submit"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-carat-d ui-btn-icon-left">Email</a>
+        <a href="#panel-fixed-page1" id="by_cancel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Cancel</a>
+
+
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="page-seller-form">
+
+    <div data-role="header">
+        <h1>Seller Information Form</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content jqm-content">
+
+        <h2 style="text-align: center">SELLER INFORMATION FORM</h2>
+
+        <form id="se_form" method="POST" data-ajax="false">
+            <div>
+			
+					<div class="ui-field-contain">
+						<label for="se_nancy_email" class="bold">Your Closer is  </label>
+						<select name="se_nancy_email" id="se_nancy_email">
+							<option value="Reunion Title">Reunion Title</option>
+							<option value="Tiago Title">Tiago Title</option>
+						
+						</select>
+					</div>
+                
+
+                <div data-role="fieldcontain">
+                    <label class="bold" for="se_seller_name1"  >Your Name(s) as they appear on your photo identification:</label>
+                    <input type="text" name="se_seller_name1" id="se_seller_name1" >
+					<label class="bold" for="se_seller_name2"  ></label>
+                    <input type="text" name="se_seller_name2" id="se_seller_name2" >
+                </div>
+
+
+                <article>
+                    <p class="bold">Marital Status </p>
+
+                    <div data-role="fieldcontain" >
+                        <input type="radio" name="se_marital_status" id="se_marital_status1" value="se_marital_status1" data-mini="true">
+                        <label for="se_marital_status1" >Married - both husband and wife shown above as seller</label>
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <input type="radio" name="se_marital_status" id="se_marital_status2" value="se_marital_status2" data-mini="true">
+                        <label for="se_marital_status2" >Married - spouse's full legal name</label>
+                        <input type="text" name="se_spouse_fullname" id="se_spouse_fullname" data-mini="true">
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <input type="radio" name="se_marital_status" id="se_marital_status3" value="se_marital_status3" data-mini="true">
+                        <label for="se_marital_status3" >Single (if more than one buyer, specify for each)</label>
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <input type="radio" name="se_marital_status" id="se_marital_status4" value="se_marital_status4" data-mini="true">
+                        <label for="se_marital_status4" >Single when acquired property and have remained single</label>
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <input type="radio" name="se_marital_status" id="se_marital_status5" value="se_marital_status5" data-mini="true">
+                        <label for="se_marital_status5" >Married when acquired property </label>
+
+
+                        <div data-role="fieldcontain"  style="margin-left: 30px;">
+
+                            <label for="se_divorce_reason">marriage ended in divorce on or about</label>
+                            <input type="text" name="se_divorce_reason" id="se_divorce_reason">
+
+                            <div style="margin-left: 20px;">
+                                <div data-role="fieldcontain" class="width-300">
+                                    <label for="se_marital_country">County</label>
+                                    <input type="text" name="se_country" id="se_marital_country">
+                                </div>
+
+                                <div data-role="fieldcontain" class="width-300">
+                                    <label for="se_marital_state">State</label>
+                                    <input type="text" name="se_state" id="se_marital_state">
+                                </div>
+                            </div>
+                            (Copy of divorce decree may be required for examination and possible title requirements).
+
+                        </div>
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <input type="radio" name="se_marital_status" id="se_marital_status6" value="se_marital_status6" data-mini="true">
+                        <label for="se_marital_status6" >Married when acquired property </label>
+                        <div data-role="fieldcontain"  style="margin-left: 30px;">
+
+                            <label for="se_death_reason">marriage ended in death of spouse on or about</label>
+                            <input type="text" name="se_death_reason" id="se_death_reason">
+
+                            <div style="margin-left: 30px;">
+                                <div data-role="fieldcontain">
+                                    <input type="radio" name="se_spouse_status" id="se_spouse_status1" value="se_spouse_status1">
+                                    <label for="se_spouse_status1">Spouse did not leave a will or the will was not probated. (Please contact title company to provide additional information)</label>
+                                </div>
+                                <div data-role="fieldcontain">
+                                    <input type="radio" name="se_spouse_status" id="se_spouse_status2" value="se_spouse_status2">
+                                    <label for="se_spouse_status2">Spouse left a will which was probated </label>
+
+										
+                                    
+                                    <div style="margin-left: 20px;">
+
+
+                                        <label for="se_spouse_country">County</label>
+                                        <input type="text" name="se_spouse_country" id="se_spouse_country">
+
+                                        <label for="se_spouse_state">State. </label>
+                                        <input type="text" name="se_spouse_state" id="se_spouse_state">
+
+                                        (Copy of divorce decree may be required for examination and possible title requirements).
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </article>
+
+                <article>
+
+                    <div data-role="fieldcontain" >
+                        <label for="se_email" class="bold">Email</label>
+                        <input type="text" name="se_email" id="se_email" data-mini="true">
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <label for="se_sc_number1" class="bold">Social Security Number(s)</label>
+                        <input type="text" name="se_sc_number1" id="se_sc_number1" value=" " data-mini="true">
+						<label for="se_sc_number2" class="bold"> </label>
+						<input type="text" name="se_sc_number2" id="se_sc_number2" value=" " data-mini="true">
+
+                    </div>
+                    <div data-role="fieldcontain" >
+                        <label for="se_daytime_phone" class="bold">Daytime Phone:</label>
+                        <input type="text" name="se_daytime_phone" id="se_daytime_phone" data-mini="true">
+
+                    </div>
+                    <div data-role="fieldcontain" >
+                        <label for="se_current_address" class="bold">Current Address:</label>
+                        <input type="text" name="se_current_address" id="se_current_address" data-mini="true">
+
+                    </div>
+                    <div data-role="fieldcontain" >
+                        <label for="se_forwarding_address" class="bold">Forwarding Address:</label>
+                        <input type="text" name="se_forwarding_address" id="se_forwarding_address" data-mini="true">
+
+                    </div>
+
+                    <div style="margin-left: 30px;" >
+                        <label class="bold">Existing Loan(s) on Property:</label>
+                        <div data-role="fieldcontain" >
+                            <label for="se_company_name1" >Name of Company</label>
+                            <input type="text" name="se_company_name1" id="se_company_name1" data-mini="true">
+
+                        </div>
+
+                        <div data-role="fieldcontain" >
+                            <label for="se_company_phone1" >Phone:</label>
+                            <input type="text" name="se_company_phone1" id="se_company_phone1" data-mini="true">
+                            <label for="se_company_loan1" >Loan#</label>
+                            <input type="text" name="se_company_loan1" id="se_company_loan1" data-mini="true">
+                        </div>
+
+                        <div data-role="fieldcontain" >
+                            <label for="se_company_name2" >Name of Company</label>
+                            <input type="text" name="se_company_name2" id="se_company_name2" data-mini="true">
+
+                        </div>
+
+                        <div data-role="fieldcontain" >
+                            <label for="se_company_phone2" >Phone:</label>
+                            <input type="text" name="se_company_phone2" id="se_company_phone2" data-mini="true">
+                            <label for="se_company_loan2">Loan#</label>
+                            <input type="text" name="se_company_loan2" id="se_company_loan2" data-mini="true">
+                        </div>
+
+
+                    </div>
+
+                    <div data-role="fieldcontain" >
+                        <label for="se_owner_name" >Homeowner Association Name(s):</label>
+                        <input type="text" name="se_owner_name" id="se_owner_name" data-mini="true">
+
+                    </div>
+                    <div data-role="fieldcontain" >
+                        <label for="se_owner_phone" >Phone#:</label>
+                        <input type="text" name="se_owner_phone" id="se_owner_phone" data-mini="true">
+                    </div>
+
+                    <p>
+
+                        Please sign below authorizing your mortgage company(ies) to release payoff information to us.
+                    </p>
+
+
+                </article>
+                
+            </div>
+
+			
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<div class="se_sigPad" id="se_sigPad1">
+						<p class="drawItDesc">Draw your Signature:</p>
+						<ul class="sigNav">
+							<li class="clearButton"><a href="#clear">Clear</a> </li>
+						</ul>
+						<div class="sig sigWrapper">
+							<canvas class="pad" width="320" height="200"></canvas>
+							<input type="hidden" name="output1" class="output1">
+						</div>
+					</div>
+				</div>
+				<div class="ui-block-b">
+					<div class="se_sigPad" id="se_sigPad2">
+						<p class="drawItDesc">Draw your Signature:</p>
+						<ul class="sigNav">
+							<li class="clearButton"><a href="#clear">Clear</a> </li>
+						</ul>
+						<div class="sig sigWrapper">
+							<canvas class="pad" width="320" height="200"></canvas>
+							<input type="hidden" name="output2" class="output2">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			
+            <div>
+				<div data-role="fieldcontain">
+						<label for="se_email_subject" class="bold" >Email Subject:</label>
+						<input type="text" name="email_subject" id="se_email_subject" data-mini="true">
+				</div>
+                <div data-role="collapsible" data-inset="false">
+                    <h3>Additional Emails</h3>
+                    <div data-role="fieldcontain">
+                        <label for="se_additional_email1" >Additional Email1:</label>
+                        <input type="text" name="additional_email1" id="se_additional_email1" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="se_additional_email2" >Additional Email2:</label>
+                        <input type="text" name="additional_email2" id="se_additional_email2" data-mini="true">
+                    </div>
+                </div><!-- /collapsible -->
+            </div>
+        </form>
+
+        <a href="#" id="se_submit"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-carat-d ui-btn-icon-left">Email</a>
+        <a href="#panel-fixed-page1" id="se_cancel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Cancel</a>
+
+
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="page-condition-form">
+
+    <div data-role="header">
+        <h1>Showing and Condition Report Form</h1>
+    </div><!-- /header -->
+
+    <img src="_assets/img/logo-maroon150.png" align="left" />
+
+    <h2 style="text-align: center;margin-top: 70px;">Showing and Condition Report Form</h2>
+
+    <div role="main" class="ui-content jqm-content" style="clear: both;">
+        <form id="sc_form" method="POST" data-ajax="false">
+
+                <div>
+                <div>
+				
+                    <div data-role="fieldcontain">
+                        <label for="sc_address" class="bold">Address:</label>
+                        <input type="text" name="sc_address" id="sc_address" data-mini="true">
+                    </div>
+
+					<div class="ui-field-contain">
+						<label for="sc_bed" class="bold">Bed:</label>
+						<select name="sc_bed" id="sc_bed">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+					
+					<div class="ui-field-contain">
+						<label for="sc_bath" class="bold">Bath:</label>
+						<select name="sc_bath" id="sc_bath">
+							<option value="1">1</option>
+							<option value="1.5">1.5</option>
+							<option value="2">2</option>
+							<option value="2.5">2.5</option>
+							<option value="3">3</option>
+							<option value="3.5">3.5</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+				
+				
+					<div class="ui-field-contain">
+						<label for="sc_garage" class="bold">Garage:</label>
+						<select name="sc_garage" id="sc_garage">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="Carport">Carport</option>
+							<option value="Garage">Garage</option>
+							<option value="Conversion">Conversion</option>
+							<option value="No Garage">No Garage</option>
+						</select>
+					</div>
+                  
+
+                    <div data-role="fieldcontain" class="width-500">
+                        <label for="sc_sqft" class="bold">Sq.Ft (Match Tax?)</label>
+                        <input type="text" name="sc_sqft" id="sc_sqft" data-mini="true">
+                    </div>
+
+                 
+
+                </div>
+
+                <div>
+                    <h3>Showing Instructions</h3>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Check One:</legend>
+                        <input type="radio" name="sc_check" id="sc_check1" value="vacant" checked>
+                        <label for="sc_check1">Vacant</label>
+                        <input type="radio" name="sc_check" id="sc_check2" value="tenant">
+                        <label for="sc_check2">Tenant Occupied</label>
+                        <input type="radio" name="sc_check" id="sc_check3" value="owner">
+                        <label for="sc_check3">Owner Occupied</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Lockbox?</legend>
+                        <input type="radio" name="sc_check_lockbox" id="sc_check_lockbox1" value="yes" checked>
+                        <label for="sc_check_lockbox1">Yes</label>
+                        <input type="radio" name="sc_check_lockbox" id="sc_check_lockbox2" value="no">
+                        <label for="sc_check_lockbox2">No</label>
+                    </fieldset>
+
+                    <div data-role="fieldcontain" class="width-500">
+                        <label for="sc_lockbox_code" class="bold">Lockbox Code:</label>
+                        <input type="text" name="sc_lockbox_code" id="sc_lockbox_code" data-mini="true">
+                    </div>
+
+                    <div data-role="fieldcontain">
+                        <label for="sc_tenant_contact_info" class="bold">Tenant Contact Info:</label>
+                        <input type="text" name="sc_tenant_contact_info" id="sc_tenant_contact_info" data-mini="true">
+                    </div>
+
+					<label for="investor_showing" class="bold">Investor Showing:</label>
+					<div style="margin-left: 30px;" id="investor_showing">
+						
+					
+						<div data-role="fieldcontain" class="width-500">
+							<label for="sc_date" class="">Date:</label>
+							<input type="date" name="sc_date" id="sc_date" data-mini="true">
+						</div>
+
+						<div data-role="fieldcontain" class="width-500">
+							<label for="sc_time" class="">Time:</label>
+							<input type="time" name="sc_time" id="sc_time" data-mini="true">
+						</div>
+					</div>
+
+                </div>
+
+
+                <div>
+                    <h3>Condition:</h3>
+
+                    <label>Check Box Below</label>
+
+
+                    <legend>Roof:</legend>
+                    <div data-role="fieldcontain" class="width-500">
+                        <label for="sc_age">Age</label>
+                        <input type="text" name="sc_age" id="sc_age">
+
+                    </div>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="radio" name="sc_roof" id="sc_roof1" value="new" checked>
+                        <label for="sc_roof1">New</label>
+                        <input type="radio" name="sc_roof" id="sc_roof2" value="good">
+                        <label for="sc_roof2">Good</label>
+                        <input type="radio" name="sc_roof" id="sc_roof3" value="repair">
+                        <label for="sc_roof3">Repair</label>
+                        <input type="radio" name="sc_roof" id="sc_roof4" value="replace">
+                        <label for="sc_roof4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Foundation:</legend>
+                        <input type="radio" name="sc_foundation" id="sc_foundation1" value="new" checked>
+                        <label for="sc_foundation1">New</label>
+                        <input type="radio" name="sc_foundation" id="sc_foundation2" value="good">
+                        <label for="sc_foundation2">Good</label>
+                        <input type="radio" name="sc_foundation" id="sc_foundation3" value="repair">
+                        <label for="sc_foundation3">Repair</label>
+                        <input type="radio" name="sc_foundation" id="sc_foundation4" value="replace">
+                        <label for="sc_foundation4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>HVAC:</legend>
+                        <input type="radio" name="sc_hvac" id="sc_hvac1" value="new" checked>
+                        <label for="sc_hvac1">New</label>
+                        <input type="radio" name="sc_hvac" id="sc_hvac2" value="good">
+                        <label for="sc_hvac2">Good</label>
+                        <input type="radio" name="sc_hvac" id="sc_hvac3" value="repair">
+                        <label for="sc_hvac3">Repair</label>
+                        <input type="radio" name="sc_hvac" id="sc_hvac4" value="replace">
+                        <label for="sc_hvac4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Hot Water Heater:</legend>
+                        <input type="radio" name="sc_heater" id="sc_heater1" value="new" checked>
+                        <label for="sc_heater1">New</label>
+                        <input type="radio" name="sc_heater" id="sc_heater2" value="good">
+                        <label for="sc_heater2">Good</label>
+                        <input type="radio" name="sc_heater" id="sc_heater3" value="repair">
+                        <label for="sc_heater3">Repair</label>
+                        <input type="radio" name="sc_heater" id="sc_heater4" value="replace">
+                        <label for="sc_heater4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Electrical Panel:</legend>
+                        <input type="radio" name="sc_panel" id="sc_panel1" value="new" checked>
+                        <label for="sc_panel1">New</label>
+                        <input type="radio" name="sc_panel" id="sc_panel2" value="good">
+                        <label for="sc_panel2">Good</label>
+                        <input type="radio" name="sc_panel" id="sc_panel3" value="repair">
+                        <label for="sc_panel3">Repair</label>
+                        <input type="radio" name="sc_panel" id="sc_panel4" value="replace">
+                        <label for="sc_panel4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Flooring:</legend>
+                        <input type="radio" name="sc_flooring" id="sc_flooring1" value="new" checked>
+                        <label for="sc_flooring1">New</label>
+                        <input type="radio" name="sc_flooring" id="sc_flooring2" value="good">
+                        <label for="sc_flooring2">Good</label>
+                        <input type="radio" name="sc_flooring" id="sc_flooring3" value="repair">
+                        <label for="sc_flooring3">Repair</label>
+                        <input type="radio" name="sc_flooring" id="sc_flooring4" value="replace">
+                        <label for="sc_flooring4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Bathrooms:</legend>
+                        <input type="radio" name="sc_bathrooms" id="sc_bathrooms1" value="new" checked>
+                        <label for="sc_bathrooms1">New</label>
+                        <input type="radio" name="sc_bathrooms" id="sc_bathrooms2" value="good">
+                        <label for="sc_bathrooms2">Good</label>
+                        <input type="radio" name="sc_bathrooms" id="sc_bathrooms3" value="repair">
+                        <label for="sc_bathrooms3">Repair</label>
+                        <input type="radio" name="sc_bathrooms" id="sc_bathrooms4" value="replace">
+                        <label for="sc_bathrooms4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Kitchen:</legend>
+                        <input type="radio" name="sc_kitchen" id="sc_kitchen1" value="new" checked>
+                        <label for="sc_kitchen1">New</label>
+                        <input type="radio" name="sc_kitchen" id="sc_kitchen2" value="good">
+                        <label for="sc_kitchen2">Good</label>
+                        <input type="radio" name="sc_kitchen" id="sc_kitchen3" value="repair">
+                        <label for="sc_kitchen3">Repair</label>
+                        <input type="radio" name="sc_kitchen" id="sc_kitchen4" value="replace">
+                        <label for="sc_kitchen4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Appliances:</legend>
+                        <input type="radio" name="sc_appliances" id="sc_appliances1" value="new" checked>
+                        <label for="sc_appliances1">New</label>
+                        <input type="radio" name="sc_appliances" id="sc_appliances2" value="good">
+                        <label for="sc_appliances2">Good</label>
+                        <input type="radio" name="sc_appliances" id="sc_appliances3" value="repair">
+                        <label for="sc_appliances3">Repair</label>
+                        <input type="radio" name="sc_appliances" id="sc_appliances4" value="replace">
+                        <label for="sc_appliances4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Windows:</legend>
+                        <input type="radio" name="sc_windows" id="sc_windows1" value="new" checked>
+                        <label for="sc_windows1">New</label>
+                        <input type="radio" name="sc_windows" id="sc_windows2" value="good">
+                        <label for="sc_windows2">Good</label>
+                        <input type="radio" name="sc_windows" id="sc_windows3" value="repair">
+                        <label for="sc_windows3">Repair</label>
+                        <input type="radio" name="sc_windows" id="sc_windows4" value="replace">
+                        <label for="sc_windows4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Pool:</legend>
+                        <input type="radio" name="sc_pool" id="sc_pool1" value="new" checked>
+                        <label for="sc_pool1">New</label>
+                        <input type="radio" name="sc_pool" id="sc_pool2" value="good">
+                        <label for="sc_pool2">Good</label>
+                        <input type="radio" name="sc_pool" id="sc_pool3" value="repair">
+                        <label for="sc_pool3">Repair</label>
+                        <input type="radio" name="sc_pool" id="sc_pool4" value="replace">
+                        <label for="sc_pool4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Garage:</legend>
+                        <input type="radio" name="sc_check_garage" id="sc_garage1" value="new" checked>
+                        <label for="sc_garage1">New</label>
+                        <input type="radio" name="sc_check_garage" id="sc_garage2" value="good">
+                        <label for="sc_garage2">Good</label>
+                        <input type="radio" name="sc_check_garage" id="sc_garage3" value="repair">
+                        <label for="sc_garage3">Repair</label>
+                        <input type="radio" name="sc_check_garage" id="sc_garage4" value="replace">
+                        <label for="sc_garage4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Landscaping:</legend>
+                        <input type="radio" name="sc_landscaping" id="sc_landscaping1" value="new" checked>
+                        <label for="sc_landscaping1">New</label>
+                        <input type="radio" name="sc_landscaping" id="sc_landscaping2" value="good">
+                        <label for="sc_landscaping2">Good</label>
+                        <input type="radio" name="sc_landscaping" id="sc_landscaping3" value="repair">
+                        <label for="sc_landscaping3">Repair</label>
+                        <input type="radio" name="sc_landscaping" id="sc_landscaping4" value="replace">
+                        <label for="sc_landscaping4">Replace</label>
+                    </fieldset>
+
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Fence:</legend>
+                        <input type="radio" name="sc_fence" id="sc_fence1" value="new" checked>
+                        <label for="sc_fence1">New</label>
+                        <input type="radio" name="sc_fence" id="sc_fence2" value="good">
+                        <label for="sc_fence2">Good</label>
+                        <input type="radio" name="sc_fence" id="sc_fence3" value="repair">
+                        <label for="sc_fence3">Repair</label>
+                        <input type="radio" name="sc_fence" id="sc_fence4" value="replace">
+                        <label for="sc_fence4">Replace</label>
+                    </fieldset>
+
+
+                    <div data-role="fieldcontain" class="width-500">
+                        <label for="sc_rehab_estimate" class="bold">Rehab Estimate:$</label>
+                        <input type="number" name="sc_rehab_estimate" id="sc_rehab_estimate" min="0" data-mini="true">
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+				<div data-role="fieldcontain">
+						<label for="sc_email_subject" class="bold" >Email Subject:</label>
+						<input type="text" name="email_subject" id="sc_email_subject" data-mini="true">
+				</div>
+                <div data-role="collapsible" data-inset="false">
+                    <h3>Additional Emails</h3>
+                    <div data-role="fieldcontain">
+                        <label for="sc_additional_email1" >Additional Email1:</label>
+                        <input type="text" name="additional_email1" id="sc_additional_email1" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="sc_additional_email2" >Additional Email2:</label>
+                        <input type="text" name="additional_email2" id="sc_additional_email2" data-mini="true">
+                    </div>
+                </div><!-- /collapsible -->
+            </div>
+        </form>
+
+        <a href="#" id="sc_submit"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-carat-d ui-btn-icon-left">Email</a>
+        <a href="#panel-fixed-page1" id="sc_cancel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Cancel</a>
+
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="page-checklist-form">
+
+    <div data-role="header">
+        <h1>Wholesale Checklist Form</h1>
+    </div><!-- /header -->
+
+    <img src="_assets/img/logo-maroon150.png" align="left" />
+
+    <h2 style="text-align: center;margin-top: 70px;">Wholesale Checklist</h2>
+
+    <div role="main" class="ui-content jqm-content" style="clear: both;">
+
+
+        <form id="cl_form" method="POST" data-ajax="false">
+            <div>
+                <div>
+                    <div data-role="fieldcontain">
+                        <label for="cl_sales_person" >Sales Person</label>
+                        <input type="text" name="cl_sales_person" id="cl_sales_person" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="cl_property_address" >Property Address</label>
+                        <input type="text" name="cl_property_address" id="cl_property_address" data-mini="true">
+                    </div>
+                </div>
+
+                <div>
+                    <fieldset data-role="controlgroup">
+                        <legend class="bold">Please Check Box:</legend>
+                        <div style="margin-left: 30px;">
+                            <input type="checkbox" name="cl_copyof_contract" id="cl_copyof_contract">
+                            <label for="cl_copyof_contract">Executed Copy of Contract</label>
+
+                                <input type="checkbox" name="cl_seller_info" id="cl_seller_info">
+                            <label for="cl_seller_info">Seller Info Sheet</label>
+
+                            <input type="checkbox" name="cl_condition_report" id="cl_condition_report">
+                            <label for="cl_condition_report">Condition and Showing Report</label>
+
+                            <input type="checkbox" name="cl_pictures_dropbox" id="cl_pictures_dropbox">
+                            <label for="cl_pictures_dropbox">Pictures in Dropbox</label>
+
+                            <input type="checkbox" name="cl_tenant_agreement" id="cl_tenant_agreement">
+                            <label for="cl_tenant_agreement">Tenant Lease Agreement (If Applicable)</label>
+
+                            <input type="checkbox" name="cl_hoa_info" id="cl_hoa_info">
+                            <label for="cl_hoa_info">HOA Info (If Applicable)</label>
+
+                            <input type="checkbox" name="cl_survey" id="cl_survey">
+                            <label for="cl_survey">Survey (If Applicable)</label>
+
+                            <input type="checkbox" name="cl_seller_disclosure" id="cl_seller_disclosure">
+                            <label for="cl_seller_disclosure">Seller's Disclosure Notice (If Applicable)</label>
+
+                            <input type="checkbox" name="cl_lead_addendom" id="cl_lead_addendom">
+                            <label for="cl_lead_addendom">Lead Base Paint Addendum (If Applicable)</label>
+                        </div>
+
+                    </fieldset>
+
+                    <br/>
+                    <br/>
+
+                    <legend class="bold">Important Contract Information:</legend>
+                    <div style="margin-left: 30px;">
+
+                        <div data-role="fieldcontain" class="width-300">
+                            <label for="cl_execution_date">Execution Date</label>
+                            <input type="date" name="cl_execution_date" id="cl_execution_date">
+                        </div>
+                        <div data-role="fieldcontain"  class="width-300">
+                            <label for="cl_expiration_date">Option Expiration Date</label>
+                            <input type="date" name="cl_expiration_date" id="cl_expiration_date">
+                        </div>
+                        <div data-role="fieldcontain" class="width-300">
+                            <label for="cl_earnest_amount">Earnest Money Amount</label>
+                            <input type="text" name="cl_earnest_amount" id="cl_earnest_amount">
+                        </div>
+                        <div data-role="fieldcontain" class="width-300">
+                            <label for="cl_closing_date">Closing Date</label>
+                            <input type="date" name="cl_closing_date" id="cl_closing_date">
+                        </div>
+                        <div data-role="fieldcontain" class="width-300">
+                            <label for="cl_source_lead">Source of Lead</label>
+                            <input type="text" name="cl_source_lead" id="cl_source_lead">
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div>
+				<div data-role="fieldcontain">
+						<label for="cl_email_subject" class="bold" >Email Subject:</label>
+						<input type="text" name="email_subject" id="cl_email_subject" data-mini="true">
+				</div>
+
+                <div data-role="collapsible" data-inset="false">
+                    <h3>Additional Emails</h3>
+                    <div data-role="fieldcontain">
+                        <label for="cl_additional_email1" >Additional Email1:</label>
+                        <input type="text" name="additional_email1" id="cl_additional_email1" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="cl_additional_email2" >Additional Email2:</label>
+                        <input type="text" name="additional_email2" id="cl_additional_email2" data-mini="true">
+                    </div>
+                </div><!-- /collapsible -->
+            </div>
+        </form>
+
+        <a href="#" id="cl_submit"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-carat-d ui-btn-icon-left">Email</a>
+        <a href="#panel-fixed-page1" id="cl_cancel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Cancel</a>
+
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+
+<div data-role="page" id="page-leadbased-form">
+
+    <div data-role="header">
+		<h2>APPROVED BY THE TEXAS REAL ESTATE COMMISSION</h2>
+        
+    </div><!-- /header -->
+
+    <img src="_assets/img/houseicon75.png" align="left" />
+
+	<h1 style="text-align:center;">ADDENDUM FOR SELLER'S DISCLOSURE OF INFORMATION ON LEAD-BASED PAINT AND LEAD-BASED PAINT HAZARDS AS REQUIRED BY FEDERAL LAW </h1>
+    <div role="main" class="ui-content jqm-content" style="clear: both;">
+
+
+        <form id="lb_form" method="POST" data-ajax="false">
+            <div>
+                <div>
+                    <div class="ui-grid-a">
+						<div class="ui-block-a" style="width:20%;">
+							<label for="cl_sales_person" >CONCERNING THE PROPERTY AT</label>
+						</div>
+						<div class="ui-block-b" style="width:79%;">
+							<input type="text" name="lb_property_address" id="lb_property_address" data-mini="true">
+							<span>(Street Address and City)</span>
+						</div>
+                    </div>
+					
+                </div>
+				
+				<div>
+					<b>A. LEAD WARNING STATEMENT:</b>
+					<span>
+						"Every     purchaser     of   any    interest   in   residential    real   property    on    which    a 
+
+           residential  dwelling  was  built  prior  to  1978  is  notified  that  such  property  may  present  exposure  to  lead  from  lead-based  paint  that  may  place  young  children  at  risk  of  developing  lead  poisoning.  Lead  poisoning  in  young  children 
+
+           may     produce      permanent      neurological      damage,      including     learning    disabilities,   reduced      intelligence     quotient, 
+
+           behavioral  problems,  and  impaired  memory.  Lead  poisoning  also  poses  a  particular  risk  to  pregnant  women.  The 
+
+           seller  of  any  interest  in  residential  real  property  is  required  to  provide  the  buyer  with  any  information  on  lead-based  paint  hazards  from  risk  assessments  or  inspections  in  the  seller's  possession  and  notify  the  buyer  of  any 
+
+           known  lead-based  paint  hazards.  A  risk  assessment  or  inspection  for  possible  lead-paint  hazards  is  recommended prior to purchase.” <br/>
+		   <span class="bold">NOTICE: Inspector must be properly certified as required by federal law. </span>
+					</span>
+					
+					
+				
+				</div>
+				
+				<div>
+					<b>B.  SELLER'S DISCLOSURE: </b>
+					
+					<div style="margin-left:20px;">
+					
+						<div>
+							<label>1. PRESENCE OF LEAD-BASED PAINT AND/OR LEAD-BASED PAINT HAZARDS (check one box only): </label>
+							<div data-role="field-contain">
+								<label for="lb_check_presence_known">(a) Known lead-based paint and/or lead-based paint hazards are present in the Property (explain):</label>
+								<input type="radio" name="lb_check_presence" id="lb_check_presence_known" value="lb_check_presence1">
+								<input type="text" name="lb_presence_explain" id="lb_presence_explain" data-mini="true">
+							</div>
+							<div data-role="field-contain">
+								<label for="lb_check_presence_unknown">(b) Seller has no actual knowledge of lead-based paint and/or lead-based paint hazards in the Property. </label>
+								<input type="radio" name="lb_check_presence" id="lb_check_presence_unknown" value="lb_check_presence2">
+							</div>
+							
+						</div>
+						
+						<div>
+							<label>
+							2.  RECORDS AND REPORTS AVAILABLE TO SELLER (check one box only): 
+							</label>
+							<div style="margin-left:30px;">
+								<div data-role="field-contain">
+									<label for="lb_check_records_available">(a) Seller  has  provided  the  purchaser  with  all  available  records  and  reports  pertaining  to  lead-based  paint and/or lead-based paint hazards in the Property (list documents): </label>
+									<input type="radio" name="lb_check_records" id="lb_check_records_available" value="lb_check_records1">
+									<input type="text" name="lb_list_documents" id="lb_list_documents" data-mini="true">
+								</div>
+								<div data-role="field-contain">
+									<label for="lb_check_records_unavailable">(b) Seller  has  no  reports  or  records  pertaining  to  lead-based  paint  and/or  lead-based  paint  hazards  in  the Property. </label>
+									<input type="radio" name="lb_check_records" id="lb_check_records_unavailable" value="lb_check_records2">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+				
+				
+				<div>
+					<b>C.  BUYER'S RIGHTS (check one box only): </b>
+					
+					<div style="margin-left:20px;">
+				
+						
+						<div data-role="field-contain">
+							<label for="lb_check_buyer_rights1">1.  Buyer  waives  the  opportunity  to  conduct  a  risk  assessment  or  inspection  of  the  Property  for  the  presence  of lead-based paint or lead-based paint hazards.</label>
+							<input type="radio" name="lb_check_buyer_rights" id="lb_check_buyer_rights1" value="lb_check_buyer_rights1">
+						</div>
+						<div data-role="field-contain">
+							<label for="lb_check_buyer_rights2">2.  Within  ten  days  after  the  effective  date  of  this  contract,  Buyer  may  have  the  Property  inspected  by  inspectors 
+
+                   selected  by  Buyer.  If  lead-based  paint  or  lead-based  paint  hazards  are  present,  Buyer  may  terminate  this 
+
+                   contract  by  giving  Seller  written  notice  within  14  days  after  the  effective  date  of  this  contract,  and  the  earnest 
+
+                    money will be refunded to Buyer. </label>
+							<input type="radio" name="lb_check_buyer_rights" id="lb_check_buyer_rights2" value="lb_check_buyer_rights2">
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				<div>
+					<b>D.  BUYER'S ACKNOWLEDGMENT (check applicable boxes):  </b>
+					
+					<div style="margin-left:20px;">
+						<div data-role="field-contain">
+							<label for="lb_check_buyer_acks1">1.   Buyer has received copies of all information listed above. </label>
+							<input type="checkbox" name="lb_check_buyer_acks1" id="lb_check_buyer_acks1">
+						</div>
+						<div data-role="field-contain">
+							<label for="lb_check_buyer_acks2">2.   Buyer has received the pamphlet Protect Your Family from Lead in Your Home.  </label>
+							<input type="checkbox" name="lb_check_buyer_acks2" id="lb_check_buyer_acks2" >
+						</div>
+					</div>
+				</div>
+				
+				
+				<div>
+					<b>E.  BROKERS'  ACKNOWLEDGMENT:  Brokers  have  informed  Seller  of  Seller's  obligations  under  42  U.S.C.  4852d  to:</b>
+					
+					<div style="margin-left:20px;">
+						(a)   provide    Buyer     with   the    federally   approved      pamphlet      on   lead    poisoning     prevention;     (b)   complete      this 
+
+           addendum;  (c)  disclose  any  known  lead-based  paint  and/or  lead-based  paint  hazards  in  the  Property;  (d)  deliver  all 
+
+           records  and  reports  to  Buyer  pertaining  to  lead-based  paint  and/or  lead-based  paint  hazards  in  the  Property;  (e) 
+
+           provide  Buyer  a  period  of  up  to  10  days  to  have  the  Property  inspected;  and  (f)  retain  a  completed  copy  of  this 
+
+           addendum for at least 3 years following the sale. Brokers are aware of their responsibility to ensure compliance. 
+					</div>
+				</div>
+				
+				
+				<div>
+					<b>F.  CERTIFICATION  OF  ACCURACY:</b>
+					
+					<div style="margin-left:20px;">The  following  persons  have  reviewed  the  information  above  and  certify,  to  the 
+
+           best of their knowledge, that the information they have provided is true and accurate.
+					</div>
+				</div>
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a" style=" margin-left:30px; width:45%">
+						<div class="ui-grid-a grid-style" >
+							<div class="ui-block-a" >
+								<label for="lb_buyer_sign1">Buyer</label>
+								<input type="text" name="lb_buyer_sign1" id="lb_buyer_sign1">
+							</div>
+							<div class="ui-block-b" >
+								<label for="lb_buyer_sign_date1" >Date</label>
+								<input type="date" name="lb_buyer_sign_date1" id="lb_buyer_sign_date1">
+							</div>
+						</div>
+						
+						
+						<div class="ui-grid-a grid-style">
+							<div class="ui-block-a">
+								<label for="lb_buyer_sign2">Buyer</label>
+								<input type="text" name="lb_buyer_sign2" id="lb_buyer_sign2">
+							</div>
+							<div class="ui-block-b" >
+								<label for="lb_buyer_sign_date2" >Date</label>
+								<input type="date" name="lb_buyer_sign_date2" id="lb_buyer_sign_date2">
+							</div>
+						</div>
+						
+						
+						<div class="ui-grid-a grid-style">
+							<div class="ui-block-a">
+								<label for="lb_broker_sign">Other Broker</label>
+								<input type="text" name="lb_other_broker_sign" id="lb_broker_sign">
+							</div>
+							<div class="ui-block-b" >
+								<label for="lb_broker_sign_date" >Date</label>
+								<input type="date" name="lb_other_broker_sign_date" id="lb_broker_sign_date">
+							</div>
+						</div>
+						
+					</div>
+					<div class="ui-block-b" style=" margin-left:30px; width:45%">
+						<div class="ui-grid-a grid-style">
+							<div class="ui-block-a">
+								<label for="lb_seller_sign1">Seller</label>
+								<input type="text" name="lb_seller_sign1" id="lb_seller_sign1">
+							</div>
+							<div class="ui-block-b" >
+								<label for="lb_seller_sign_date1" >Date</label>
+								<input type="date" name="lb_seller_sign_date1" id="lb_seller_sign_date1">
+							</div>
+						</div>
+						
+						
+						<div class="ui-grid-a grid-style">
+							<div class="ui-block-a">
+								<label for="lb_buyer_sign2">Seller</label>
+								<input type="text" name="lb_seller_sign2" id="lb_seller_sign2">
+							</div>
+							<div class="ui-block-b" >
+								<label for="lb_buyer_sign_date2" >Date</label>
+								<input type="date" name="lb_seller_sign_date2" id="lb_buyer_seller_date2">
+							</div>
+						</div>
+						
+						
+						<div class="ui-grid-a grid-style">
+							<div class="ui-block-a">
+								<label for="lb_broker_sign">Listing Broker</label>
+								<input type="text" name="lb_listing_broker" id="lb_listing_broker_sign">
+							</div>
+							<div class="ui-block-b" >
+								<label for="lb_broker_sign_date" >Date</label>
+								<input type="date" name="lb_listing_broker_date" id="lb_listing_broker_sign_date">
+							</div>
+						</div>
+					</div>
+				
+					
+				
+				</div>
+				
+				
+				<div>
+					The  form  of  this  addendum  has  been  approved  by  the  Texas  Real  Estate  Commission  for  use  only  with  similarly  approved  or  promulgated 
+
+              forms  of  contracts.  Such  approval  relates  to  this  contract  form  only.  TREC  forms  are  intended  for  use  only  by  trained  real  estate  licensees. 
+
+              No  representation  is  made  as  to  the  legal  validity  or  adequacy  of  any  provision  in  any  specific  transactions.  It  is  not  suitable  for  complex 
+
+              transactions. Texas Real Estate Commission, P.O. Box 12188, Austin, TX 78711-2188, 512-936-3000 (http://www.trec.texas.gov) 
+			
+				</div>
+							
+			</div>		
+      
+		
+		
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<div class="se_sigPad" id="lb_buyerSig1">
+					<p class="drawItDesc">Draw Buyer Signature:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output_buyer_1" class="output_buyer_1">
+					</div>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="se_sigPad" id="lb_sellerSig1">
+					<p class="drawItDesc">Draw Seller Signature:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output_seller_1" class="output_seller_1">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<div class="se_sigPad" id="lb_buyerSig2">
+					<p class="drawItDesc">Draw Buyer Signature:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output_buyer_2" class="output_buyer_2">
+					</div>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="se_sigPad" id="lb_sellerSig2">
+					<p class="drawItDesc">Draw Seller Signature:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output_seller_2" class="output_seller_2">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<div class="se_sigPad" id="lb_brokerSig1">
+					<p class="drawItDesc">Draw Other Broker Signature:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output_broker_1" class="output_broker_1">
+					</div>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div class="se_sigPad" id="lb_brokerSig2">
+					<p class="drawItDesc">Draw Listing Broker Signature:</p>
+					<ul class="sigNav">
+						<li class="clearButton"><a href="#clear">Clear</a> </li>
+					</ul>
+					<div class="sig sigWrapper">
+						<canvas class="pad" width="320" height="200"></canvas>
+						<input type="hidden" name="output_broker_2" class="output_broker_2">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+			<div>
+				<div data-role="fieldcontain">
+						<label for="lb_email_subject" class="bold" >Email Subject:</label>
+						<input type="text" name="email_subject" id="lb_email_subject" data-mini="true">
+				</div>
+
+                <div data-role="collapsible" data-inset="false">
+                    <h3>Additional Emails</h3>
+                    <div data-role="fieldcontain">
+                        <label for="lb_additional_email1" >Additional Email1:</label>
+                        <input type="text" name="additional_email1" id="lb_additional_email1" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="lb_additional_email2" >Additional Email2:</label>
+                        <input type="text" name="additional_email2" id="lb_additional_email2" data-mini="true">
+                    </div>
+                </div><!-- /collapsible -->
+            </div>
+		
+		  </form>
+		
+
+        <a href="#" id="lb_submit"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-carat-d ui-btn-icon-left">Email</a>
+        <a href="#panel-fixed-page1" id="lb_cancel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Cancel</a>
+
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+
+
+
+
+<div data-role="page" id="page-purchase-form">
+
+    <div data-role="header">
+		<h2>PURCHASE & SALE AGREEMENT</h2>
+        
+    </div><!-- /header -->
+
+    <center><img src="_assets/img/logo-maroon150.png" align="center" /></center>
+	<br/>
+
+	<h1 style="text-align:center;">PURCHASE & SALE AGREEMENT</h1>
+    <div role="main" class="ui-content jqm-content" style="clear: both;">
+
+        <form id="pa_form" method="POST" data-ajax="false">
+            <div>
+				<p>This agreement (herein after referred to as "Agreement/Contract") is between </p>
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<input type="text" name="pa_seller" id="pa_seller">
+						<label for="pa_seller">("Seller")</label>
+					</div>
+					<div class="ui-block-b" >
+						and North Forest Financial, LLC and or assigns ("Buyer"), 
+					</div>
+				</div>
+				<p>The Buyer and Seller, when metioned together may be referred to as Parties.</p>
+				
+				<div data-role="field-contain">
+					<label for="pa_buyer_property">Seller agrees to sell to Buyer the property known as </label>
+					<input type="text" name="pa_buyer_property" id="pa_buyer_property" />
+				</div>
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						Which is legally described as :
+					</div>
+					<div class="ui-block-b" >
+						<div data-role="field-contain">
+							<input type="text" name="pa_legal_property" id="pa_legal_property" />
+							<label for="pa_legal_property">("Property")</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div>
+				<p>The parties agree to the following terms and conditions: </p>
+				
+					<div class="ui-field-contain">
+						<label for="pa_buyer_pay_title" class="bold">Buyer will pay   </label>
+						<select name="pa_buyer_pay_title" id="pa_buyer_pay_title">
+							<option value="Reunion Title">Reunion Title</option>
+							<option value="Tiago Title">Tiago Title</option>
+						
+						</select>
+					</div>
+					
+				<label for="pa_buyer_pay_amount">as earnest money deposit, which shall be applied as a credit to the Sales Price at closing.</label>
+				
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<span class="bold">PURCHASE PRICE: </span> Buyer will pay the purchase price of 
+					</div>
+					<div class="ui-block-b" >
+						<input type="number" name="pa_buyer_purchase_price" id="pa_buyer_purchase_price" min="0">
+						<label for="pa_buyer_purchase_price">("Sales Price")</label>
+					</div>
+				</div>
+				<p><span class="bold">PROPERTY SOLD "AS-IS": </span> The Buyer is purchasing the Property "As-Is." No repairs or improvements will be made to the Property by Seller prior to closing. However, this agreement is contingent upon a satisfactory inspection of the Property by the Buyer prior to closing date.</p>
+				
+				<p><span class="bold">CLOSING TERMS AND CONDITIONS: </span> Buyer will choose the closing agent/title company and Buyer will pay for all escrow fees for Buyer and Seller, including title insurance, however, this shall not include property taxes/assessments, mortgages, liens, legal fees for curing title, recording fees, HOA or other assessments, commissions to realtors or document preparation which will be the sole expense of the Seller. Buyer reserves  the right to record a memorandum of this contract in the deed records of the county where the Property is located. Seller represents and warrants to the Buyer that they have the authority to bind and any additional persons, estates or entities that may be in title and are not listed as sellers herein to the terms of this contract. Title will be transferred by general warranty deed at closing. Seller agrees to provide clear title, free and clear of any lien or encumbrance. All taxes will be prorated and any back taxes and any HOA, Condo or other Assessments, Liens, Mortgages will be paid by Seller at or before closing. Possession shall be give at the closing, unless otherwise agreed in writing. Buyer may extend closing up to 15 days for legitimate reasons beyond personal control of the parties. Any extension of the closing will be transmitted by the Buyer to the Seller in writing. Seller shall be required to cooperate and provide any and all information requested by the title company in a timely manner in order to cure any title issues and/or obtain any payoffs or other information needed to close.  </p>
+						
+				<div data-role="field-contain">
+					<label for="pa_closing_date"><b>CLOSING DATE:</b> The Closing Date of this Agreement shall be on or before 5:00 pm</label>
+					<input type="date" name="pa_closing_date" id="pa_closing_date" />
+				</div>
+				
+				<p><span class="bold">LEASES ON PROPERTY: </span> If property is subject to a lease, Seller shall deliver to Buyer the signed lease(s) and or any security deposits. All rents due to the Seller shall be prorated on the settlement statement at the time of closing.  </p>
+				
+				
+				<div>
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<span class="bold">HOMEOWNERS ASSOCIATIONS AND OTHER ASSESSMENTS: </span>
+						</div>
+						
+						<div class="ui-block-b" data-role="field-contain" >
+							Property
+							<div class="ui-grid-a">
+								<div class="ui-block-a">
+									<div data-role="field-contain">
+										<input type="radio" name="pa_property_is" id="pa_property_is" value="pa_property_is" checked/>
+										<label for="pa_property_is">is</label>
+									</div>
+								</div>
+								<div class="ui-block-b" >
+									<div data-role="field-contain">
+										<input type="radio" name="pa_property_is" id="pa_property_isnot" value="pa_property_isnot" />
+										<label for="pa_property_isnot">is not</label>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<span>subject to mandatory homeowners associations. If property is subject to owners association, Seller must notify Buyer. Seller is obligated to pay all assessments and all costs owed to or required by the owners association in order to order a resale certificate and/or close.</span>
+				</div>
+				
+				<p><span class="bold">PERSONAL PROPERTY: </span> Seller will remove all contents from Property prior to closing date. </p>
+				
+				<p><span class="bold">ACCESS TO THE PROPERTY: </span> Seller shall make the property accessible to Buyer, Buyer's partners, agents and contractors. Buyer may market the Property to potential investors, agents and renters. Buyer may place a lockbox on the property for access to property  </p>
+				
+				<p><span class="bold">BUYER'S DISCLOSURES: </span> Chris Arnold, a principal in North Forest Financial, LLC is a licensed Real Estate Broker. Buyer and his employees are not representing any party and Buyer and Seller agree that each is acting in their best interest.</p>
+				
+				<p><span class="bold">SELLER'S ACKNOWLEDGEMENT: </span> Seller hereby acknowledges that all negotiations and deadlines with Buyer have been and are at arm's length and  that no duress or undue influence has been exerted by Buyer over  Seller or Seller's family in connection with agreement.</p>
+				<p><span class="bold">ATTORNEY FEES: </span>If legal action is needed to enforce any part of this agreement, the prevailing party is entitled to reasonable attorney fees and costs.</p>
+				
+				<p><span class="bold">MEDIATION: </span>It is the policy of the State of Texas to encourage resolution of disputes through alternative dispute resolution procedures such as mediation. Any dispute between Seller and Buyer related to this contract which is not resolved through informal discussion 
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div data-role="field-contain">
+
+							<input type="radio" name="pa_disput_willsubmit" id="pa_disput_will_submit" value="pa_disput_will_submit" checked/>
+							<label for="pa_disput_will_submit">will</label>
+						</div>
+					</div>
+					<div class="ui-block-b" >
+						<div data-role="field-contain">
+							<input type="radio" name="pa_disput_willsubmit" id="pa_disput_willnot_submit" value="pa_disput_willnot_submit" />
+							<label for="pa_disput_willnot_submit">will not</label>
+						</div>
+					</div>
+				</div> be submitted to a mutually acceptable mediation service or provider. The parties to the mediation shall bear the mediation costs equally. This paragraph does not preclude a party from seeking equitable relief from a court of competent jurisdiction.</p>
+				
+				
+				
+				<p><span class="bold">VENUE & JURISDICTION: </span>Any disputes arising on this Agreement shall be pursued in a court of competent jurisdiction located in Dallas County, Texas.</p> 
+				<p><span class="bold">THIS IS THE ENTIRE AGREEMENT: </span>This Agreement is complete between the parties. No other representations have been made or relied on in making this agreement. If any part or provision in this agreement is held to be invalid or unenforceable, the remaining valid provisions will stay in force and effect. This Agreement can only be amended by written agreement executed by both parties.</p> 
+				
+				
+				<p><span class="bold">TERMINATION PERIOD: </span>Buyer has an unrestricted 30 days after the Execution Date (defined herein) of the Contract to determine whether the Property is suitable to Buyer. In the event Buyer determines not to purchase the Property and so notifies seller in writing, then this Contract shall terminate upon receipt of said notice and both parties shall be fully released from any and all obligations hereunder without any further documentation. *NOTICE: Written notice hereunder may be delivered by mail, facsimile and/or email to the addresses, email addresses or facsimile numbers provided herein.</p> 
+				
+				<div data-role="field-contain">
+					<label for="pa_closing_date" class="bold" >OTHER PROVISIONS: </label>
+					<input type="date" name="pa_other_provisions1" id="pa_other_provisions1" />
+                    <input type="date" name="pa_other_provisions2" id="pa_other_provisions2" />
+				</div>
+				
+				<p>If not accepted by this date and time the Agreement is invalid and void. By signing below, you understand and agree to the terms and conditions of this Agreement to purchase Real Estate. <span class="bold" >The Execution Date as defined herein shall be the date the last of the parties to sign this Agreement as evidenced below.</span></p> 
+				
+				
+				<div>
+				
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<div class="ui-grid-a">
+								<div class="ui-block-a" data-role="field-contain">
+
+									<input type="text" name="pa_evidence_seller1" id="pa_evidence_seller1" />
+                                    <label for="pa_evidence_seller1">Seller</label>
+								</div>
+								<div class="ui-block-b" data-role="field-contain">
+
+									<input type="date" name="pa_evidence_seller_date1" id="pa_evidence_seller_date1" />
+                                    <label for="pa_evidence_seller_date1">Date</label>
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="ui-block-b">
+							<div class="ui-grid-a">
+								<div class="ui-block-a" data-role="field-contain">
+									<label type="text" name="pa_evid" id="pa_evid" >Buyer COSA Investments, Ltd by Scott Orbon Member of North Forest Financial, LLC as General Partner of COSA Investments, Ltd. </label>
+                                    <div>Buyer</div>
+								</div>
+								<div class="ui-block-b" data-role="field-contain">
+
+									<input type="date" name="pa_evidence_buyer_date" id="pa_evidence_buyer_date" /><label for="pa_evidence_buyer_date">Date</label>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<div class="ui-grid-a">
+								<div class="ui-block-a" data-role="field-contain">
+
+									<input type="text" name="pa_evidence_seller2" id="pa_evidence_seller2" />
+                                    <label for="pa_evidence_seller2">Seller</label>
+								</div>
+								<div class="ui-block-b" data-role="field-contain">
+
+									<input type="date" name="pa_evidence_seller_date2" id="pa_evidence_seller_date2" />
+                                    <label for="pa_evidence_seller_date2">Date</label>
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="ui-block-b">
+
+						</div>
+					</div>
+					
+				
+					
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<input type="text" name="pa_evidence_seller_addr1" id="pa_evidence_seller_addr1" />
+							<input type="text" name="pa_evidence_seller_addr2" id="pa_evidence_seller_addr2 />
+                            <label for="pa_evidence_seller_addr2">Address</label>
+						</div>
+						
+						<div class="ui-block-b" data-role="field-contain">
+							<span> 3699 McKinney Avenue #222 Dallas, TX 75204</span>
+                            <label>Address</label>
+						</div>
+					</div>
+					
+					
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+
+							<input type="text" name="pa_evidence_seller_email" id="pa_evidence_seller_email" /><label for="pa_evidence_seller_email">Email</label>
+						</div>
+						
+						<div class="ui-block-b" data-role="field-contain">
+
+							<span>cosacompany@gmail.com</span>
+                            <label>Email</label>
+						</div>
+					</div>
+					
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+
+							<input type="text" name="pa_evidence_seller_phone" id="pa_evidence_seller_phone" /><label for="pa_evidence_seller_phone">Phone#</label>
+						</div>
+						
+						<div class="ui-block-b" data-role="field-contain">
+
+							<span>214-549-2246</span>
+                            <label>Phone#</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+				
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<div class="se_sigPad" id="pa_seller_sign1">
+								<p class="drawItDesc">Seller Signature1:</p>
+								<ul class="sigNav">
+									<li class="clearButton"><a href="#clear">Clear</a> </li>
+								</ul>
+								<div class="sig sigWrapper">
+									<canvas class="pad" width="320" height="200"></canvas>
+									<input type="hidden" name="output_seller_1" class="output_seller_1">
+								</div>
+							</div>
+						</div>
+						<div class="ui-block-b">
+							<div class="se_sigPad" id="pa_seller_sign2">
+								<p class="drawItDesc">Seller Signature2:</p>
+								<ul class="sigNav">
+									<li class="clearButton"><a href="#clear">Clear</a> </li>
+								</ul>
+								<div class="sig sigWrapper">
+									<canvas class="pad" width="320" height="200"></canvas>
+									<input type="hidden" name="output_seller_2" class="output_seller_2">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui-block-b">
+					<div class="se_sigPad" id="pa_buyer_sign">
+						<p class="drawItDesc">Buyer Signature:</p>
+						<ul class="sigNav">
+							<li class="clearButton"><a href="#clear">Clear</a> </li>
+						</ul>
+						<div class="sig sigWrapper">
+							<canvas class="pad" width="320" height="200"></canvas>
+							<input type="hidden" name="output_buyer_1" class="output_buyer_1">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div>
+				<div data-role="fieldcontain">
+						<label for="pa_email_subject" class="bold" >Email Subject:</label>
+						<input type="text" name="email_subject" id="pa_email_subject" data-mini="true">
+				</div>
+
+                <div data-role="collapsible" data-inset="false">
+                    <h3>Additional Emails</h3>
+                    <div data-role="fieldcontain">
+                        <label for="pa_additional_email1" >Additional Email1:</label>
+                        <input type="text" name="additional_email1" id="pa_additional_email1" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="pa_additional_email2" >Additional Email2:</label>
+                        <input type="text" name="additional_email2" id="pa_additional_email2" data-mini="true">
+                    </div>
+                </div><!-- /collapsible -->
+            </div>
+		
+		  </form>
+        <a href="#" id="pa_submit"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-carat-d ui-btn-icon-left">Email</a>
+        <a href="#panel-fixed-page1" id="pa_cancel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Cancel</a>
+
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+body{
+
+
+    width: 1900px;
+}
+
+
+
+.bold{
+
+    font-weight: bold !important;
+}
+
+.sameline{
+
+    display: inline-block !important;
+
+}
+
+#consideration_container div.ui-input-text
+{
+
+    width:100px;
+}
+
+.no-border div.ui-input-text
+{
+    border: none !important;
+    box-shadow: none !important;
+
+}
+
+
+.title-reunion div.ui-input-text{
+
+     width: 100px;
+ }
+
+.assinee-deposit div.ui-input-text{
+
+    width: 100px;
+}
+
+
+.width-500 div.ui-input-text
+{
+	width:500px;
+}
+
+.width-100 div.ui-input-text
+{
+	width:100px;
+}
+
+.width-300 div.ui-input-text
+{
+	width:300px;
+}
+
+
+.ui-grid-a div.ui-input-text
+{
+	width:90%;
+}
+
+.grid-style div.ui-block-a
+{
+	width:680px;
+}
+.grid-style div.ui-block-b
+{
+	width:150px;
+}
